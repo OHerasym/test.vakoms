@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+{% block content %}
+
+<ul>
+    <li><a class="btn btn-default" href="/articles/all">Cancel</a></li>
+</ul>
+
+<form action="/articles/create/" method="post" enctype="multipart/form-data">{% csrf_token %}
+<ul>
+{{form.as_ul}}
+</ul>
+
+<input class="btn btn-default" type="submit" name="submit" value="Create Article">
+</form>
+
+<p><italic> Note: Article needs to be approved in admin mode!</italic></p>
+
+{% endblock %}
+

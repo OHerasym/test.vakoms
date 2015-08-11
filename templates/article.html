@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidebar %}
+<ul>
+    <li><a href="/articles/all">Articles</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-8">
+	<h1>{{ article.title }}</h1>
+	<p>{{ article.body }}</p>
+
+	<p>{{article.likes}} people liked this article</a></p>
+	<p><a class="btn btn-xs btn-success"href="/articles/like/{{article.id}}">Like</a></p>
+
+	<h2>Comments</h2>
+	{% for c in article.comment_set.all %}
+	<p>{{c.first_name}} {{c.second_name}}: {{c.body}}  (--{{c.pub_date }}--)
+	<a class="btn btn-xs btn-danger" href="/articles/delete_comment/{{c.id}}">Delete</a>
+	</p>
+	{% endfor %}
+
+	<p><a class="btn btn-primary" href="/articles/add_comment/{{article.id}}">Add Comment</a></p>
+
+</div>
+
+{% endblock %}
+

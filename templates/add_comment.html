@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+{% block content %}
+
+<ul>
+    <li><a class="btn btn-primary" href="/articles/get/{{article.id}}">Cancel</a></li>
+</ul>
+
+<form action="/articles/add_comment/{{article.id}}/" method="post">{% csrf_token %}
+<ul>
+{{form.as_ul}}
+</ul>
+
+<input class="btn btn-primary" type="submit" name="submit" value="Post Comment">
+</form>
+
+{% endblock %}
+
