@@ -26,7 +26,7 @@ DATABASES = {
 SECRET_KEY = 'vn99v6*ri3e6-2h(7)x21e^02#-&z4!3bop01$v)c5d-nj)#^6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
