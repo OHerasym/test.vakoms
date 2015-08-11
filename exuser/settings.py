@@ -26,9 +26,9 @@ DATABASES = {
 SECRET_KEY = 'vn99v6*ri3e6-2h(7)x21e^02#-&z4!3bop01$v)c5d-nj)#^6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'test-vakoms.herokuapp.com']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
