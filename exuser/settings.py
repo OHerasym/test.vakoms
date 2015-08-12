@@ -19,6 +19,9 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config()
 }
+
+PROJECT_DIRECTORY = os.getcwd()
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -50,7 +53,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'app1',
     'post',
-    'django_markdown'
+    'django_markdown',
+    'twitter_bootstrap',
 )
 
 
@@ -97,10 +101,19 @@ WSGI_APPLICATION = 'exuser.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'exuser',
+        'USER': 'root',
+        'PASSWORD': '1111'
     }
 }
 
@@ -122,4 +135,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/post/static/'
+
+STATIC_ROOT = os.path.join(PROJECT_DIRECTORY,'static')
+
+#STATICFILES_DIRS = (os.path.join(PROJECT_DIRECTORY,'static'),)
+
+#HAYSTACK_CONNECTIONS = {
+#    'default': {
+#        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+#    },
+#}

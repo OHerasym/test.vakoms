@@ -4,8 +4,7 @@ from post.models import Blog, Category, Comment
 from django_markdown.admin import MarkdownModelAdmin
 
 class BlogAdmin(MarkdownModelAdmin):
-	list_display = ("title", "pub_date", "owner")
-	#exlude = ['posted']
+	list_display = ("title", "pub_date", "owner", "approved")
 	prepopulated_fields = {'slug': ('title',)}
 
 class CategoryAdmin(admin.ModelAdmin):

@@ -16,13 +16,15 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='userprofile',
             name='first_name',
-            field=models.CharField(default=datetime.datetime(2015, 8, 9, 14, 39, 28, 175148, tzinfo=utc), max_length=30),
+            field=models.CharField(max_length=30),
+            #field=models.CharField(default=datetime.datetime(2015, 8, 9, 14, 39, 28, 175148, tzinfo=utc), max_length=30),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='userprofile',
             name='last_name',
-            field=models.CharField(default=datetime.datetime(2015, 8, 9, 14, 39, 38, 780218, tzinfo=utc), max_length=30),
+            #field=models.CharField(default=datetime.datetime(2015, 8, 9, 14, 39, 38, 780218, tzinfo=utc), max_length=30),
+            field=models.CharField(max_length=30),
             preserve_default=False,
         ),
     ]

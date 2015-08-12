@@ -8,23 +8,10 @@
     <li><a href="/articles/create">Create Article</a></li>
 </ul>
 
-<h3>Search</h3>
-{% csrf_token %}
-<input type="text" id="search" name="search" />
-
-<ul id="search-results">
-
-</ul>
-
 {% endblock %}
-
-
 
 {% block content %}
 
-<!--<h2>Language is: {{language}}</h2>-->
-
-<!--<h2>Session Language is: {{session_language}}</h2>-->
 <div class="row">
 {% if articles.count > 0 %}
 
@@ -34,6 +21,7 @@
     	<h2><a href="/articles/get/{{ article.id }}/">{{ article.title }}</a></h2>
     	<p>{{ article.body|lower| article_shorten_body:50 }}</p>
     	<p><small>{{article.likes}} people liked this article</small></a></p>
+        <p><small><i>{{article.pub_date}}</i></small></p>
     	<p><a class="btn btn-default" href="{% url 'post.views.article' article.id%}"> View more </a></p>
     </div>
     {% endif %}
@@ -44,5 +32,6 @@
 	<p>None to show!</p>
 </div>
 {% endif %}
+
 </div>
 {% endblock %}

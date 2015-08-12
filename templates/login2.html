@@ -1,4 +1,4 @@
-
+{% extends "base2.html" %}
 
 {% block content %}
     {% if form.errors %}
@@ -6,16 +6,19 @@
     {% endif %}
 
 
-    <form action="/accounts/auth/" method="post"> {% csrf_token %}
-    	<label for="username"> User name: </label>
-    	<input type="text" name="username" value="" id="username">
-    	<label type="password"> Password: </label>
-    	<input type="password" name="password" value="" id="password">
+    <form class="form-signin" action="/accounts/auth/" method="post"> {% csrf_token %}
+    	<label for="username" class="sr-only"> User name: </label>
+    	<input type="email" name="username" value="" id="username" class="form-control" placeholder="Email address" required autofocus>
+    	<label type="password" class="sr-only"> Password: </label>
+    	<input type="password" name="password" value="" id="password" class="form-control" placeholder="Password" required>
 
-    	<input type="submit" value="login" />
+    	<input class="btn btn-lg btn-primary btn-block" type="submit" value="login" />
 
     </form>
 
     <p> <a href="/accounts/register/"> Register form! </a> </p>
 
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 {% endblock %}

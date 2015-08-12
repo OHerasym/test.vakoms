@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +7,11 @@
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!--<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/default.css" >-->
-
     <!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	
-    <script src="{% get_static_prefix %}js/jquery-2.0.0.min.js"></script>
-    <script src="{% get_static_prefix %}js/ajax.js"></script>
+    <script src="{% static "js/jquery-2.0.0.min.js" %}"></script>
+    <script src="{% static "js/ajax.js" %}"></script>
     
     <style type="text/css">
     	body {padding-top:60px;}
@@ -32,29 +30,41 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/articles/all/">Test Vakoms</a>
+          <a class="navbar-brand" href="/accounts/login/">Login</a>
+          <a class="navbar-brand" href="/admin/">Admin Mode</a>
+          <a class="navbar-brand" href="/articles/create/">Create Post</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
+        
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        
+        <img src="{% static 'images/home.jpg' %}" width="100%" />
+
+        <h3>Search Title</h3>
+        {% csrf_token %}
+        <input type="text" id="search" name="search" />
+
+        <ul id="search-results">
+
+        </ul>
+
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
       </div>
+
+
+
     </div>
 
     <div class="container">
@@ -68,31 +78,14 @@
       </footer>
     </div> <!-- /container -->
 
-	<div id="page">
-
-    <div id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/articles/all">Articles</a></li>
-            <li><a href="/admin/">Admin</a></li>
-        </ul>
-        {% endblock %}
-    </div>
-
     <div id="content">
     
-	{% if messages %}
-            <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
+	
         
         
 	
 	<div class="clearfix"></div>
-	<img src="{% static "images/python-logo.jpg" %}" width="200"/>
+	
     </div>
 	
 	</div>

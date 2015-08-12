@@ -1,11 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
-
 from django import forms
-
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.admin import UserAdmin
-
 from app1.models import UserProfile
 
 import re
@@ -38,7 +35,6 @@ class UserChangeForm(forms.ModelForm):
 
 	class Meta:
 		model = UserProfile
-		#exclude = ()
 		fields = ['email', 'mobile', 'first_name', 'last_name', 'is_active']
 
 	def clean_password(self):

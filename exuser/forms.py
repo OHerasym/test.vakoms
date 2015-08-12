@@ -10,14 +10,6 @@ class MyRegistrationForm(UserCreationForm):
     class Meta:
         model = UserProfile
         fields = ('email', 'mobile', 'first_name', 'last_name','password1', 'password2')
-
-    #def clean_email(self):
-     #   email = self.cleaned_data["email"]
-    #    try:
-    #        User._default_manager.get(email=email)
-    #    except User.DoesNotExist:
-    #        return email
-    #    raise forms.ValidationError('duplicate email')
         
     def save(self, commit=True):
         user = super(MyRegistrationForm, self).save(commit=False)
