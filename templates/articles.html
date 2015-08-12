@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-{% load article_tags %}
+
 
 {% block sidebar %}
 <ul>
@@ -19,7 +19,7 @@
     {% if article.approved %}
     <div class="col-6 col-sm-6 col-lg-4">
     	<h2><a href="/articles/get/{{ article.id }}/">{{ article.title }}</a></h2>
-    	<p>{{ article.body|lower| article_shorten_body:50 }}</p>
+    	<p>{{ article.body|lower }}</p>
     	<p><small>{{article.likes}} people liked this article</small></a></p>
         <p><small><i>{{article.pub_date}}</i></small></p>
     	<p><a class="btn btn-default" href="{% url 'post.views.article' article.id%}"> View more </a></p>
